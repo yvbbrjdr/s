@@ -7,10 +7,7 @@ const config = require('./config');
 const getURL = p => new Promise((resolve, reject) => {
   fs.readFile(path.join(__dirname, 'map.json'), (err, data) => {
     if (err) {
-      reject({
-        status: 500,
-        reason: err
-      });
+      reject({status: 500, reason: err});
       return;
     }
     try {
@@ -18,15 +15,9 @@ const getURL = p => new Promise((resolve, reject) => {
       if (url)
         resolve(url);
       else
-        reject({
-          status: 404,
-          reason: 'Not Found'
-        });
+        reject({status: 404, reason: 'Not Found'});
     } catch (error) {
-      reject({
-        status: 500,
-        reason: error
-      });
+      reject({status: 500, reason: error});
     }
   });
 });
@@ -34,9 +25,7 @@ const getURL = p => new Promise((resolve, reject) => {
 http.createServer(async (req, res) => {
   try {
     const url = await getURL(req.url);
-    res.writeHead(302, {
-      Location: url
-    });
+    res.writeHead(302, {Location: url});
     res.end();
   } catch (error) {
     res.writeHead(error['status']);
