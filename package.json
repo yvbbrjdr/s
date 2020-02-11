@@ -1,0 +1,21 @@
+{
+  "name": "s",
+  "version": "0.1.0",
+  "description": "Short URL as short as possible",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvbbrjdr/s.git"
+  },
+  "keywords": [
+    "shorturl"
+  ],
+  "author": "yvbbrjdr",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/yvbbrjdr/s/issues"
+  },
+  "homepage": "https://github.com/yvbbrjdr/s#readme"
+}
