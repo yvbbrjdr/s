@@ -1,11 +1,12 @@
 const fs = require('fs');
 const http = require('http');
+const path = require('path');
 
 const config = require('./config');
 
-const getURL = (path) => {
+const getURL = (p) => {
   return new Promise((resolve, reject) => {
-    fs.readFile('map.json', (err, data) => {
+    fs.readFile(path.join(__dirname, 'map.json'), (err, data) => {
       if (err) {
         reject({
           status: 500,
@@ -14,7 +15,7 @@ const getURL = (path) => {
         return;
       }
       try {
-        const url = JSON.parse(data)[path];
+        const url = JSON.parse(data)[p];
         if (url)
           resolve(url);
         else
